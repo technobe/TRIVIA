@@ -333,6 +333,109 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+// import { getFirestore, collection, addDoc } from "firebase/firestore";
+// import { app } from "../firebase";
+// import "../styles/Register.scss";
+
+// const auth = getAuth(app);
+// const db = getFirestore(app);
+
+// const RegisterPage = () => {
+//   const [formData, setFormData] = useState({
+//     firstName: "",
+//     lastName: "",
+//     email: "",
+//     password: "",
+//    // profileImage: null,
+//   });
+
+//   const navigate = useNavigate();
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     try {
+//       // Create user with email and password
+//       const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+//       const user = userCredential.user;
+
+//       // Add additional user information to Firestore
+//       await addDoc(collection(db, "users"), {
+//         firstName: formData.firstName,
+//         lastName: formData.lastName,
+//         email: formData.email,
+//         // You need to store the image URL, not the file
+//         //profileImage: formData.profileImage,
+//       });
+
+//       console.log("User registered:", user.uid);
+
+//       // Redirect the user to the login page after successful registration
+//       navigate("/login");
+//     } catch (err) {
+//       console.log("Registration failed", err.message);
+//       // Handle registration error
+//     }
+//   };
+
+//   return (
+//     <div className="register">
+//       <div className="content">
+//         <form className="form" onSubmit={handleSubmit}>
+//           <input
+//             placeholder="First Name"
+//             name="firstName"
+//             type="text"
+//             value={formData.firstName}
+//             onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+//             required
+//           />
+//           <input
+//             placeholder="Last Name"
+//             name="lastName"
+//             type="text"
+//             value={formData.lastName}
+//             onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+//             required
+//           />
+//           <input
+//             placeholder="Email"
+//             name="email"
+//             type="email"
+//             value={formData.email}
+//             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+//             required
+//           />
+//           <input
+//             placeholder="Password"
+//             name="password"
+//             value={formData.password}
+//             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+//             type="password"
+//             required
+//           />
+//           {/* Input for profile image upload */}
+//           {/* <input
+//             type="file"
+//             accept="image/*"
+//             onChange={(e) => setFormData({ ...formData, profileImage: e.target.files[0] })}
+//           /> */}
+//           <button type="submit">REGISTER</button>
+//         </form>
+//         <p>
+//           <a href="/login">Already have an account? Log In Here</a>
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default RegisterPage;
+
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";

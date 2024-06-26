@@ -3,22 +3,35 @@
 
 
 .title-list {
-  margin: 40px 100px;
-  color: $blue;
-
+  text-align: center;
+  margin: 24px 0;
   @include sm {
     margin: 40px 50px;
   }
 }
 
 .list {
-  padding: 0 100px 120px;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 25px;
+  justify-content: space-around;
+  padding: 16px;
 
   @include xl {
     padding: 0 20px 120px;
   }
 }
+
+.manage-buttons1 {
+  padding: 10px;
+  margin: 50px;
+  align-items: center;
+}
+.manage-buttons2 {
+  padding: 10px;
+  margin: 50px;
+  align-items: center;
+}
+.manage-buttons2 {
+  background-color: red;
+}
+

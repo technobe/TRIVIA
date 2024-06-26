@@ -69,7 +69,8 @@
       border-radius: 30px;
       display: flex;
       gap: 10px;
-      background-color: white;
+      color:black;
+      background-color: rgb(254, 254, 254);
       cursor: pointer;
 
       &:hover {
@@ -84,7 +85,7 @@
 
     &_accountmenu {
       position: absolute;
-      background-color: white;
+      background-color: rgb(255, 251, 251);
       right: 60px;
       top: 80px;
       display: flex;

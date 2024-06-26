@@ -34,6 +34,10 @@ import PropertyList from "./pages/PropertyList";
 import ReservationList from "./pages/ReservationList";
 import CategoryPage from "./pages/CategoryPage";
 import SearchPage from "./pages/SearchPage";
+import Booking from "./pages/Booking";
+import ContactUs from "./pages/ContactUs";
+import Admin from "./pages/Admin";
+import AdminLoginPage from "./pages/AdminLoginPage";
 
 function App() {
   return (
@@ -51,6 +55,10 @@ function App() {
           <Route path="/userId/wishList" element={<WishList />} />
           <Route path="/userId/properties" element={<PropertyList />} />
           <Route path="/:userId/reservations" element={<ReservationList />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin-login" element={<AdminLoginPage />} />
         </Routes>
 
     </div>

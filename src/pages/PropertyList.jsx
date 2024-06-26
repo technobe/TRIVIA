@@ -482,6 +482,7 @@ import Loader from "../components/Loader";
 import Footer from "../components/Footer";
 import { getFirestore } from "firebase/firestore";
 import { app } from "../firebase";
+import "../styles/List.scss";
 
 const db = getFirestore(app);
 
@@ -499,10 +500,12 @@ const PropertyList = () => {
       return;
     }
 
+    const userId = JSON.parse(localStorage.getItem("user"))?.uid; // Get user ID from local storage
+
     const getPropertyList = async () => {
       try {
         const listingsRef = collection(db, "listings");
-        const q = query(listingsRef, where("creator", "==", currentUser.uid));
+        const q = query(listingsRef, where("userId", "==", userId)); // Filter by user ID
         const querySnapshot = await getDocs(q);
         
         const tempList = [];
@@ -568,9 +571,9 @@ const PropertyList = () => {
                 price={price}
                 booking={booking}
               />
-              <div className="manage-buttons">
-                <button onClick={() => navigate(`/edit-property/${id}`)}>Edit</button>
-                <button onClick={() => removeProperty(id)}>Remove</button>
+              <div >
+                <button className="manage-buttons1" onClick={() => navigate(`/create-listing`)}>Edit</button>
+                <button className="manage-buttons2" onClick={() => removeProperty(id)}>Remove</button>
               </div>
             </div>
           )
@@ -581,5 +584,6 @@ const PropertyList = () => {
   );
 };
 
-export default PropertyList;
+export default PropertyList;
+
 

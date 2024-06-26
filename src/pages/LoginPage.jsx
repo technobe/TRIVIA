@@ -313,6 +313,146 @@
 // export default LoginPage;
 /////////////////////////////////////
 
+// import React, { useState } from "react";
+// import "../styles/Login.scss";
+// import { Link, useNavigate } from "react-router-dom";
+// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+// import { app } from "../firebase";
+
+// const auth = getAuth(app);
+
+// const LoginPage = () => {
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [error, setError] = useState("");
+//   const navigate = useNavigate();
+
+//   const handleLogin = async () => {
+//     try {
+//       const userCredential = await signInWithEmailAndPassword(
+//         auth,
+//         email,
+//         password
+//       );
+//       const user = userCredential.user;
+//       const idToken = await user.getIdToken();
+
+//       localStorage.setItem("user", JSON.stringify({ uid: user.uid, email: user.email }));
+//       localStorage.setItem("token", idToken);
+
+//       // Redirect or navigate to the desired page
+//       navigate("/");
+//     } catch (error) {
+//       console.error("Login failed", error.message);
+//       setError(error.message);
+//     }
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     handleLogin();
+//   };
+
+//   return (
+//     <div className="login">
+//       <div className="content">
+//         <form className="form" onSubmit={handleSubmit}>
+//           <input
+//             type="email"
+//             placeholder="Email"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//             required
+//           />
+//           <input
+//             type="password"
+//             placeholder="Password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//             required
+//           />
+//           <button type="submit">LOG IN</button>
+//         </form>
+//         <p>{error}</p>
+//         <Link to="/register">Don't have an account? Sign Up Here</Link>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default LoginPage;
+
+
+// import React, { useState } from "react";
+// import "../styles/Login.scss";
+// import { Link, useNavigate } from "react-router-dom";
+// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+// import { app } from "../firebase";
+
+// const auth = getAuth(app);
+
+// const LoginPage = () => {
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [error, setError] = useState("");
+//   const navigate = useNavigate();
+
+//   const handleLogin = async () => {
+//     try {
+//       const userCredential = await signInWithEmailAndPassword(
+//         auth,
+//         email,
+//         password
+//       );
+//       const user = userCredential.user;
+//       const idToken = await user.getIdToken();
+
+//       localStorage.setItem("user", JSON.stringify({ uid: user.uid, email: user.email }));
+//       localStorage.setItem("token", idToken);
+
+//       // Redirect or navigate to the desired page
+//       navigate("/");
+//     } catch (error) {
+//       console.error("Login failed", error.message);
+//       setError(error.message);
+//     }
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     handleLogin();
+//   };
+
+//   return (
+//     <div className="login">
+//       <div className="content">
+//         <form className="form" onSubmit={handleSubmit}>
+//           <input
+//             type="email"
+//             placeholder="Email"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//             required
+//           />
+//           <input
+//             type="password"
+//             placeholder="Password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//             required
+//           />
+//           <button type="submit">LOG IN</button>
+//         </form>
+//         <p>{error}</p>
+//         <Link to="/register">Don't have an account? Sign Up Here</Link>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default LoginPage;
+
+
 import React, { useState } from "react";
 import "../styles/Login.scss";
 import { Link, useNavigate } from "react-router-dom";
@@ -353,6 +493,10 @@ const LoginPage = () => {
     handleLogin();
   };
 
+  const handleAdminLogin = () => {
+    navigate("/admin-login");
+  };
+
   return (
     <div className="login">
       <div className="content">
@@ -373,6 +517,10 @@ const LoginPage = () => {
           />
           <button type="submit">LOG IN</button>
         </form>
+      
+    
+        {/* <button className="admin" onClick={handleAdminLogin}>Admin Login</button> */}
+        <Link to="/admin-login">Admin LogIn</Link>
         <p>{error}</p>
         <Link to="/register">Don't have an account? Sign Up Here</Link>
       </div>
@@ -380,6 +528,7 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default LoginPage;
+
 
 
